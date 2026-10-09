@@ -1,0 +1,13 @@
+{
+  "$schema":"node_modules/wrangler/config-schema.json",
+  "name":"virtual-ai-office-api",
+  "main":"src/index.js",
+  "compatibility_date":"2026-10-01",
+  "compatibility_flags":["nodejs_compat"],
+  "d1_databases":[{"binding":"DB","database_name":"virtual-ai-office","database_id":"REPLACE_WITH_D1_ID","migrations_dir":"../migrations"}],
+  "kv_namespaces":[{"binding":"CACHE","id":"REPLACE_WITH_KV_ID"}],
+  "r2_buckets":[{"binding":"FILES","bucket_name":"virtual-ai-office-files"}],
+  "queues":{"producers":[{"binding":"AGENT_QUEUE","queue":"virtual-ai-office-jobs"}],"consumers":[{"queue":"virtual-ai-office-jobs","max_batch_size":5,"max_batch_timeout":10,"max_retries":3}]},
+  "triggers":{"crons":["*/5 * * * *"]},
+  "vars":{"APP_NAME":"Virtual AI Office"}
+}

@@ -1,0 +1,25 @@
+{
+  "name": "virtual-ai-office",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "deploy:pages": "npm run build && wrangler pages deploy dist --project-name virtual-ai-office",
+    "deploy:worker": "wrangler deploy --config worker/wrangler.jsonc",
+    "migrate": "wrangler d1 migrations apply virtual-ai-office --remote --config worker/wrangler.jsonc"
+  },
+  "dependencies": {
+    "@react-three/drei": "latest",
+    "@react-three/fiber": "latest",
+    "three": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "wrangler": "latest"
+  }
+}
